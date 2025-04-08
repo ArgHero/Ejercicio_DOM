@@ -1,6 +1,6 @@
 let encabezado1 = document.getElementById("encabezado1");
 let encabezado2 = document.getElementById("encabezado2");
-let lista = document.getElementsByTagName('ul');
+let listas = document.getElementsByTagName('ul');
 
 let elementos = document.getElementsByClassName("list-group-item");//elemento vivo
 let otroElemento = document.querySelector("ul>li");//Solo regresa el primero, elemento vivo
@@ -13,7 +13,7 @@ console.log("Otro elemento: ",otroElemento);
 console.log(otrosElementos.length);
 
 encabezado1.innerText="<em>Encabezado DOM</em>";
-console.log(lista[0]);
+console.log(listas[0]);
 encabezado2.innerHTML = "<em>eningles</em>";
 
 
@@ -22,10 +22,23 @@ const modifica = ()=>{
     encabezado1.innerHTML += "<em> Ejercicio</em>";
     encabezado2.innerText = ++contador;
 }
+// btnMostrar.addEventListener("click",function (event){
+//     event.preventDefault();
+//     console.log(event);
+    
+//     btnMostrar.innerText="Sea preto";
+//     console.log("Se presionó el botón mostrar");
+// });
+
 btnMostrar.addEventListener("click",function (event){
     event.preventDefault();
-    console.log(event);
-    
-    btnMostrar.innerText="Sea preto";
-    console.log("Se presionó el botón mostrar");
+    let element = document.createElement("li");
+    element.innerText = "El quinto elemento"; // <li>EL quinto elemento</li>
+    element.classList.add("list-group-item");
+
+    let element2 = element.cloneNode(true);
+
+    listas.item(0).append(element);
+    listas.item(0).prepend(element2);
 });
+

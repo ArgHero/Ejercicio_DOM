@@ -18,5 +18,6 @@ Tareas por realizar:
  git commit
  git push
  ```
+> Vista previa del index.html
 
  ![Image](./images/prueba.jpg)

@@ -9,6 +9,11 @@ let otrosElementos = document.querySelectorAll("ul>li"); //No es una lista viva,
 
 let btnMostrar = document.getElementById("btnMostrar");
 
+let txtRFC = document.getElementById("txtRFC");
+let txtTelefono = document.getElementById("txtTelefono");
+let txtCURP = document.getElementById("txtCURP");
+
+
 console.log("Otro elemento: ", otroElemento);
 console.log(otrosElementos.length);
 
@@ -40,7 +45,13 @@ btnMostrar.addEventListener("click", function (event) {
   listas.item(0).append(element);
   listas.item(0).prepend(element2);
 
+  listas.item(0).before(element);
+  listas.item(0).after(element2);
+
+//   Funcionan igual que los 4 métodos pasados.
 //   listas.item(1).insertAdjacentElement("afterbegin", element);
+//   listas.item(1).insertAdjacentElement("beforebegin", element2);
+//   listas.item(1).insertAdjacentElement("afterend", element);
 //   listas.item(1).insertAdjacentElement("beforeend", element2);
 
   listas
@@ -69,3 +80,25 @@ btnMostrar.addEventListener("click", function (event) {
       `<li class="list-group-item">Abajo por fuera</li>`
     );
 });
+window.addEventListener("load",function(event){
+	//Cosas que se hacen cuando la página acaba de cargar.
+	console.log("Se terminó de cargar la página")
+});//load
+
+function txtToUpper(event){
+  event.preventDefault();
+  event.target.value = event.target.value.trim().toUpperCase();
+}
+txtRFC.addEventListener("blur",txtToUpper);
+txtTelefono.addEventListener("blur",txtToUpper);
+txtCURP.addEventListener("blur",txtToUpper);
+
+// //Blur: Cuando se sale del campo
+// txtRFC.addEventListener("blur",function(event){
+//   event.preventDefault();
+//   txtRFC.value = txtRFC.value.toUpperCase();
+// });//RFC
+// txtTelefono.addEventListener("blur",function(event){
+//   txtTelefono.value = txtTelefono.value.slice(0,10);
+// })//telefono
+
